@@ -30,7 +30,14 @@ function app(people) {
             break;
         case "no":
             //! TODO: Declare a searchByTrait function //////////////////////////////////////////
-            searchResults = searchByTrait(people);
+            let searchTrait = promptFor(
+                "What trait would you like to search for? Enter 'gender', 'dob', 'height', 'weight', 'eye color', or 'occupation'",  chars
+            );
+            if (searchTrait === "gender") {
+                searchGender()
+            };
+            alert(malePeople)
+            //searchResults = searchByTrait(people);
             break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
@@ -185,10 +192,24 @@ function yesNo(input) {
  * @returns {Boolean}           Default validation -- no logic yet.
  */
 function chars(input) {
+    // make sure the user keys only "dob", "eye color", etc.
+
     return true; // Default validation only
+
 }
 // End of chars()
 
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 
+function searchGender() {
+    let results = data.filter(function (people) {
+        if (people.gender === "Male") {
+            return true;
+        }
+    })
+    return results;
+}
+let malePeople = searchGender();
+alert(malePeople)
+// Several functions (one per trait)
