@@ -29,16 +29,37 @@ function app(people) {
             searchResults = searchByName(people);
             break;
         case "no":
-            //! TODO: Declare a searchByTrait function //////////////////////////////////////////
-            let searchTrait = promptFor(
-                "What trait would you like to search for? Enter 'gender', 'dob', 'height', 'weight', 'eye color', or 'occupation'",  chars
+            let userPickedTrait = promptFor(
+                "Do you want to search by eye color, gender, occupation, or multiple?"
             );
-            if (searchTrait === "gender") {
-                searchGender()
-            };
-            alert(malePeople)
-            //searchResults = searchByTrait(people);
-            break;
+            switch(userPickedTrait){
+                case "eye color":
+                    searchResults = searchByEyeColor(people);
+                    choosePerson(searchResults);
+                    break;
+                case "gender":
+                    searchResults = searchByGender(people);
+                    chhosePerson(searchResults);
+                    break;
+                case "occupation":
+                    searchResults = searchByOccupation(people);
+                    choosePerson(searchResults);
+                    break;
+                // case "multiple":
+                //     searchResults = multipleSearchCriteria(people);
+                //     chhosePerson(searchResults);
+                //     break;
+            }
+        //     //! TODO: Declare a searchByTrait function //////////////////////////////////////////
+        //     let searchTrait = promptFor(
+        //         "What trait would you like to search for? Enter 'gender', 'dob', 'height', 'weight', 'eye color', or 'occupation'",  chars
+        //     );
+        //     if (searchTrait === "gender") {
+        //         searchGender()
+        //     };
+        //     alert(malePeople)
+        //     //searchResults = searchByTrait(people);
+        //     break;
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
             app(people);
@@ -202,14 +223,29 @@ function chars(input) {
 //////////////////////////////////////////* End Of Starter Code *//////////////////////////////////////////
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 
-function searchGender() {
-    let results = data.filter(function (people) {
-        if (people.gender === "Male") {
-            return true;
-        }
-    })
-    return results;
+//Search By Gender
+function searchByGender(people){
+let gender = promptFor("What is the person's gender?");
+
+let foundPerson =people.filter(function (potentialMatch){
+    if (potentialMatch.gender === gender){
+        return true;
+    } else {
+        return false;
+
+    }
 }
-let malePeople = searchGender();
-alert(malePeople)
+
+
+
+// function searchGender() {
+//     let results = data.filter(function (people) {
+//         if (people.gender === "Male") {
+//             return true;
+//         }
+//     })
+//     return results;
+// }
+// let malePeople = searchGender();
+// alert(malePeople)
 // Several functions (one per trait)
