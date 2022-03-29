@@ -29,37 +29,7 @@ function app(people) {
             searchResults = searchByName(people);
             break;
         case "no":
-            let userPickedTrait = promptFor(
-                "Do you want to search by eye color, gender, occupation, or multiple?"
-            );
-            switch(userPickedTrait){
-                case "eye color":
-                    searchResults = searchByEyeColor(people);
-                    choosePerson(searchResults);
-                    break;
-                case "gender":
-                    searchResults = searchByGender(people);
-                    chhosePerson(searchResults);
-                    break;
-                case "occupation":
-                    searchResults = searchByOccupation(people);
-                    choosePerson(searchResults);
-                    break;
-                // case "multiple":
-                //     searchResults = multipleSearchCriteria(people);
-                //     chhosePerson(searchResults);
-                //     break;
-            }
-        //     //! TODO: Declare a searchByTrait function //////////////////////////////////////////
-        //     let searchTrait = promptFor(
-        //         "What trait would you like to search for? Enter 'gender', 'dob', 'height', 'weight', 'eye color', or 'occupation'",  chars
-        //     );
-        //     if (searchTrait === "gender") {
-        //         searchGender()
-        //     };
-        //     alert(malePeople)
-        //     //searchResults = searchByTrait(people);
-        //     break;
+            searchResults = searchByTraits(people) 
         default:
             // Re-initializes the app() if neither case was hit above. This is an instance of recursion.
             app(people);
@@ -93,13 +63,12 @@ function mainMenu(person, people) {
         case "info":
             //! TODO: Declare a findPersonInfo function //////////////////////////////////////////
             // HINT: Look for a person-object stringifier utility function to help
-            let personInfo = displayPerson(person[0]); //findPersonInfo(person[0]);
-            alert(personInfo);
+            displayPerson(person[0]); //findPersonInfo(person[0]);
             break;
         case "family":
             //! TODO: Declare a findPersonFamily function //////////////////////////////////////////
             // HINT: Look for a people-collection stringifier utility function to help
-            let personFamily = displayPeople(person[0],people); //findPersonFamily(person[0], people);
+            let personFamily = findPersonFamily(person[0], people); //displayPeople(person[0],people); //
             alert(personFamily);
             break;
         case "descendants":
@@ -112,6 +81,8 @@ function mainMenu(person, people) {
             // Restart app() from the very beginning
             app(people);
             break;
+        case "test":
+            findById(464142841,people)
         case "quit":
             // Stop application execution
             return;
@@ -173,8 +144,8 @@ function displayPerson(person) {
     personInfo += `Weight: ${person.weight}\n`;
     personInfo += `Eye Color: ${person.eyeColor}\n`;
     personInfo += `Occupation: ${person.occupation}\n`;
-    personInfo += `Parents: ${person.parents}\n`;
-    personInfo += `Current Spouse: ${person.currentSpouse}\n`;
+    // personInfo += `Parents: ${person.parents}\n`;
+    // personInfo += `Current Spouse: ${person.currentSpouse}\n`;
     //! TODO: finish getting the rest of the information to display //////////////////////////////////////////
     alert(personInfo);
 }
@@ -224,18 +195,55 @@ function chars(input) {
 // Any additional functions can be written below this line 👇. Happy Coding! 😁
 
 //Search By Gender
-function searchByGender(people){
-let gender = promptFor("What is the person's gender?");
+function searchByGender(people) {
+    let gender = promptFor("What is the person's gender?")
 
-let foundPerson =people.filter(function (potentialMatch){
-    if (potentialMatch.gender === gender){
-        return true;
-    } else {
-        return false;
 
-    }
+    let foundPerson = data.filter(function (potentialMatch) {
+        if (potentialMatch.gender === "gender") {
+            return true;
+        } else {
+            return false;
+
+        }
+    });
 }
 
+
+
+
+
+// let userPickedTrait = promptFor(
+//     "Do you want to search by eye color, gender, occupation, or multiple?"
+// );
+// switch(userPickedTrait){
+//     case "eye color":
+//         searchResults = searchByEyeColor(people);
+//         choosePerson(searchResults);
+//         break;
+//     case "gender":
+//         searchResults = searchByGender(people);
+//         chhosePerson(searchResults);
+//         break;
+//     case "occupation":
+//         searchResults = searchByOccupation(people);
+//         choosePerson(searchResults);
+//         break;
+//     // case "multiple":
+//     //     searchResults = multipleSearchCriteria(people);
+//     //     chhosePerson(searchResults);
+//     //     break;
+// }
+// //     //! TODO: Declare a searchByTrait function //////////////////////////////////////////
+// //     let searchTrait = promptFor(
+// //         "What trait would you like to search for? Enter 'gender', 'dob', 'height', 'weight', 'eye color', or 'occupation'",  chars
+// //     );
+// //     if (searchTrait === "gender") {
+// //         searchGender()
+// //     };
+// //     alert(malePeople)
+// //     //searchResults = searchByTrait(people);
+// //     break;
 
 
 // function searchGender() {
@@ -249,3 +257,11 @@ let foundPerson =people.filter(function (potentialMatch){
 // let malePeople = searchGender();
 // alert(malePeople)
 // Several functions (one per trait)
+
+// Find Person's Family
+function findPersonFamily(person, people) {
+    let parents = //function
+        let spouse = //function
+            let siblings = //function
+    
+}
