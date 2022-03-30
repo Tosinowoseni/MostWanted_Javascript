@@ -70,6 +70,7 @@ function mainMenu(person, people) {
             // HINT: Look for a people-collection stringifier utility function to help
             let personFamily = findPersonFamily(person[0], people); //displayPeople(person[0],people); //
             alert(personFamily);
+            
             break;
         case "descendants":
             //! TODO: Declare a findPersonDescendants function //////////////////////////////////////////
@@ -82,7 +83,10 @@ function mainMenu(person, people) {
             app(people);
             break;
         case "test":
-            findSpouses(person[0])
+            let spouse = findSpouse(person[0], people)
+            console.log(spouse)
+            let parents = findParents(person[0], people)
+            console.log(parents)
         case "quit":
             // Stop application execution
             return;
@@ -278,13 +282,32 @@ function searchByGender(people) {
 //     })
 //     return results
 // }
-// function findSpouses(){
-//     let filteredSpouses = people.filter(function (person) {
-//         if (person.id === person.currentSpouse) {
-//             return true;
-//         }
-//     })
-//     return filteredSpouses;
+function findSpouse(person, people){
+    let filteredSpouse = people.filter(function (potentialSpouse) {
+        if (potentialSpouse.id === person.currentSpouse) {
+            return true;
+        }
+    })
+    return filteredSpouse;
+}
+
+function findById(idNumber, people) {
+    let filteredPerson = people.filter(function (potentialPerson) {
+        if (potentialPerson.id === idNumber) {
+            return true;
+        }
+    })
+    return filteredPerson;
+}
+
+// function findParents(idNumber, people) {
+//     let foundParent = findById(idNumber)
+ 
 // }
-// spouses = findSpouses()
-// console.log(spouses)
+function findParents(person, people) {
+    let foundParents = person.parents.map(function (parentNum) {
+        findById(parentNum, people)
+        return findById;
+    })
+    return foundParents;
+}
