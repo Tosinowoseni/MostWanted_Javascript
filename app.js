@@ -257,7 +257,7 @@ function searchByGender(people) {
 // Several functions (one per trait)
 
 // Find Person's Family
-// function findPersonFamily(person, people) {
+// function findPersonFamily(person[0], people) {
     //  let parents = people.filter(function(person){
     //      if (person.parents[0] || person.parents[1] === "id")
     //          return true;
