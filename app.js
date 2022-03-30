@@ -82,17 +82,7 @@ function mainMenu(person, people) {
             app(people);
             break;
         case "test":
-            function findSpouse(person[0], people){
-                let results= people.filter(function(person){
-                    if(person.id===person.currentSpouse){
-                    return true;
-                }
-                })
-                return results;
-                spouse=findSpouse();
-               console.log(spouse) 
-            
-            }
+            findSpouses(person[0])
         case "quit":
             // Stop application execution
             return;
@@ -268,7 +258,13 @@ function searchByGender(people) {
 
 // Find Person's Family
 // function findPersonFamily(person, people) {
-//     let parents = //function
+    //  let parents = people.filter(function(person){
+    //      if (person.parents[0] || person.parents[1] === "id")
+    //          return true;
+    //  return parents;
+    //     })
+
+
 //         let spouse = //function
 //             let siblings = //function
     
@@ -282,15 +278,13 @@ function searchByGender(people) {
 //     })
 //     return results
 // }
-
-// function findSpouse(){
-//     let results= people.filter(function(person){
-//         if(person.id===person.currentSpouse){
-//         return true;
-//     }
+// function findSpouses(){
+//     let filteredSpouses = people.filter(function (person) {
+//         if (person.id === person.currentSpouse) {
+//             return true;
+//         }
 //     })
-//     return results;
-//     spouse=findSpouse();
-//    console.log(spouse) 
-
+//     return filteredSpouses;
 // }
+// spouses = findSpouses()
+// console.log(spouses)
