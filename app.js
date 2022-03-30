@@ -306,15 +306,15 @@ function findById(idNumber, people) {
 // }
 
 
-function findParents(person, people) {  
-    let results = people.filter(function(fm){
-        if(person.parents.includes(fm.id)) {
-            return true
-        } 
+// //function findParents(person, people) {  
+//     let results = people.filter(function(fm){
+//         if(person.parents.includes(fm.id)) {
+//             return true
+//         } 
         
-    }) 
-    return results
-}
+//     }) 
+//     return results
+// }
 
 // function findPersonSiblings (person, people, callback){
 //     let results = callback(person, people);
@@ -326,3 +326,12 @@ function findParents(person, people) {
 //     return familyMemeber
 // }
 
+function findParents(findById, people) {  
+    let results = people.filter(function(fm){
+        if(findById.parents.includes(fm.id)) {
+            return true
+        } 
+        
+    }) 
+    return results
+}
