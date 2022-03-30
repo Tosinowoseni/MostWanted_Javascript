@@ -304,10 +304,25 @@ function findById(idNumber, people) {
 //     let foundParent = findById(idNumber)
  
 // }
-function findParents(person, people) {
-    let foundParents = person.parents.map(function (parentNum) {
-        findById(parentNum, people)
-        return findById;
-    })
-    return foundParents;
+
+
+function findParents(person, people) {  
+    let results = people.filter(function(fm){
+        if(person.parents.includes(fm.id)) {
+            return true
+        } 
+        
+    }) 
+    return results
 }
+
+// function findPersonSiblings (person, people, callback){
+//     let results = callback(person, people);
+//     let familyMemeber = results.map(function(fm){
+//         return `Parents: ${fm.firstName}${fm.lastName}`
+
+//     })
+//     .join("\n")
+//     return familyMemeber
+// }
+
