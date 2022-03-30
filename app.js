@@ -56,7 +56,7 @@ function mainMenu(person, people) {
         return app(people);
     }
     let displayOption = prompt(
-        `Found ${person[0].firstName} ${person[0].lastName}. Do you want to know their 'info', 'family', or 'descendants'?\nType the option you want or type 'restart' or 'quit'.`
+        `Found ${person[0].firstName} ${person[0].lastName}. Do you want to know their 'info', 'family', 'test', or 'descendants'?\nType the option you want or type 'restart' or 'quit'.`
     );
     // Routes our application based on the user's input
     switch (displayOption) {
@@ -82,7 +82,17 @@ function mainMenu(person, people) {
             app(people);
             break;
         case "test":
-            findById(464142841,people)
+            function findSpouse(person[0], people){
+                let results= people.filter(function(person){
+                    if(person.id===person.currentSpouse){
+                    return true;
+                }
+                })
+                return results;
+                spouse=findSpouse();
+               console.log(spouse) 
+            
+            }
         case "quit":
             // Stop application execution
             return;
@@ -144,9 +154,7 @@ function displayPerson(person) {
     personInfo += `Weight: ${person.weight}\n`;
     personInfo += `Eye Color: ${person.eyeColor}\n`;
     personInfo += `Occupation: ${person.occupation}\n`;
-    // personInfo += `Parents: ${person.parents}\n`;
-    // personInfo += `Current Spouse: ${person.currentSpouse}\n`;
-    //! TODO: finish getting the rest of the information to display //////////////////////////////////////////
+    
     alert(personInfo);
 }
 // End of displayPerson()
@@ -259,9 +267,30 @@ function searchByGender(people) {
 // Several functions (one per trait)
 
 // Find Person's Family
-function findPersonFamily(person, people) {
-    let parents = //function
-        let spouse = //function
-            let siblings = //function
+// function findPersonFamily(person, people) {
+//     let parents = //function
+//         let spouse = //function
+//             let siblings = //function
     
-}
+// }
+
+// // //function findPersonFamily(person, people, callback){
+// //     let results= callback(person, people);
+// //     let familyMemeber= results.map(function (fm){
+// //         return `Parents: ${fm.firstName}${fm.lastName}`
+        
+//     })
+//     return results
+// }
+
+// function findSpouse(){
+//     let results= people.filter(function(person){
+//         if(person.id===person.currentSpouse){
+//         return true;
+//     }
+//     })
+//     return results;
+//     spouse=findSpouse();
+//    console.log(spouse) 
+
+// }
